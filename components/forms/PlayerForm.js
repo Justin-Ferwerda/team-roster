@@ -38,7 +38,7 @@ function PlayerForm({ obj }) {
     } else {
       const payload = { ...formInput, uid: user.uid };
       createPlayer(payload).then(() => {
-        router.push('/team');
+        router.push('/');
       });
     }
   };
@@ -47,7 +47,7 @@ function PlayerForm({ obj }) {
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Player</h2>
 
-      <FloatingLabel controlId="floatingInput1" label="First Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Name"
@@ -58,7 +58,7 @@ function PlayerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Last Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Image URL" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Image URL"
@@ -69,7 +69,7 @@ function PlayerForm({ obj }) {
         />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Email" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Position" className="mb-3">
         <Form.Control
           type="text"
           placeholder="Enter Position"
