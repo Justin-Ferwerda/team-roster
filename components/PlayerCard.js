@@ -30,6 +30,7 @@ function PlayerCard({ playerObj, onUpdate }) {
       <BackSide style={{ backgroundColor: '#FFC72C' }}>
         <h1>{playerObj.name}</h1>
         <h3>{playerObj.position}</h3>
+        <h3>{playerObj.team}</h3>
         <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
@@ -46,6 +47,7 @@ PlayerCard.propTypes = {
     name: PropTypes.string,
     image: PropTypes.string,
     position: PropTypes.string,
+    team: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
