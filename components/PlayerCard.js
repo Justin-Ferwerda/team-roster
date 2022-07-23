@@ -22,7 +22,7 @@ function PlayerCard({ playerObj, onUpdate }) {
       ref={ref} // to use toggle method like ref.curret.toggle()
       // if you pass isFlipped prop component will be controlled component.
       // and other props, which will go to div
-      style={{ width: '250px', height: '300px', margin: 10 }}
+      style={{ width: '250px', height: '300px', margin: '10px' }}
     >
       <FrontSide style={{ backgroundColor: '#26282A' }}>
         <Image src={playerObj.image} layout="fill" />
