@@ -105,6 +105,7 @@ PlayerForm.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     position: PropTypes.string,
+    team: PropTypes.string,
     firebaseKey: string,
   }),
 };
