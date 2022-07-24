@@ -4,12 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { deleteSinglePlayer } from '../api/playerData';
+import { deleteTeamPlayers } from '../api/mergedData';
 
-function PlayerCard({ playerObj, onUpdate, src }) {
-  const deleteThisPlayer = () => {
-    if (window.confirm(`Delete ${playerObj.name}?`)) {
-      deleteSinglePlayer(playerObj.firebaseKey).then(() => onUpdate());
+function TeamCard({ teamObj, src, onUpdate }) {
+  const deleteThisTeam = () => {
+    if (window.confirm(`Delete ${teamObj.name}?`)) {
+      deleteTeamPlayers(teamObj.firebaseKey).then(() => onUpdate());
     }
   };
 
@@ -28,30 +28,33 @@ function PlayerCard({ playerObj, onUpdate, src }) {
         <Image src={src} layout="fill" />
       </FrontSide>
       <BackSide style={{ backgroundColor: '#FFC72C' }}>
-        <h1>{playerObj.name}</h1>
-        <h3>{playerObj.position}</h3>
-        <h3>{playerObj.team}</h3>
-        <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
+        <h1>{teamObj.city}</h1>
+        <h1>{teamObj.name}</h1>
+        <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisPlayer} className="m-2">
+        <Button variant="danger" onClick={deleteThisTeam} className="m-2">
           DELETE
         </Button>
+        <h5>{teamObj.public ? 'Public' : ''}</h5>
+        <Link href={`/team/${teamObj.firebaseKey}`} passHref>
+          <Button variant="info">VIEW DETAILS</Button>
+        </Link>
       </BackSide>
     </Flippy>
   );
 }
 
-PlayerCard.propTypes = {
-  playerObj: PropTypes.shape({
+TeamCard.propTypes = {
+  teamObj: PropTypes.shape({
     name: PropTypes.string,
     image: PropTypes.string,
-    position: PropTypes.string,
-    team: PropTypes.string,
+    city: PropTypes.string,
+    public: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
   src: PropTypes.string.isRequired,
 };
 
-export default PlayerCard;
+export default TeamCard;

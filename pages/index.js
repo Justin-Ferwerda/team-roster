@@ -25,7 +25,7 @@ function Home() {
       </Link>
       <div className="d-flex flex-wrap">
         {players.map((player) => (
-          <PlayerCard key={player.firebaseKey} playerObj={player} onUpdate={getAllThePlayers} />
+          <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} onUpdate={getAllThePlayers} />
         ))}
       </div>
 

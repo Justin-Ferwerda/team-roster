@@ -82,6 +82,21 @@ function TeamForm({ obj }) {
           />
         </FloatingLabel>
 
+        <Form.Check
+          className="text-white mb-3"
+          type="switch"
+          id="public"
+          name="public"
+          label="Public?"
+          checked={formInput.public}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              public: e.target.checked,
+            }));
+          }}
+        />
+
         <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Team</Button>
       </Form>
     </>
@@ -94,6 +109,7 @@ TeamForm.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     city: PropTypes.string,
+    public: PropTypes.bool,
     firebaseKey: string,
   }),
 };
