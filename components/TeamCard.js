@@ -28,15 +28,17 @@ function TeamCard({ teamObj, src, onUpdate }) {
         <Image src={src} layout="fill" />
       </FrontSide>
       <BackSide style={{ backgroundColor: '#FFC72C' }}>
-        <h1>{teamObj.city}</h1>
-        <h1>{teamObj.name}</h1>
+        <div className="team-details">
+          <h1>{teamObj.city}</h1>
+          <h1>{teamObj.name}</h1>
+        </div>
         <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisTeam} className="m-2">
           DELETE
         </Button>
-        <h5>{teamObj.public ? 'Public' : ''}</h5>
+        <h5 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h5>
         <Link href={`/team/${teamObj.firebaseKey}`} passHref>
           <Button variant="info">VIEW DETAILS</Button>
         </Link>

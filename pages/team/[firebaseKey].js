@@ -13,17 +13,14 @@ export default function ViewTeam() {
   useEffect(() => {
     viewTeamDetails(firebaseKey)
       .then(setteamDetails);
-    console.warn(teamDetails);
   }, [firebaseKey, teamDetails]);
-
-  console.warn(teamDetails);
 
   return (
     <>
       <TeamCard key={firebaseKey} teamObj={teamDetails} src={teamDetails.image} onUpdate={() => null} />
       <div className="d-flex flex-wrap">
         {teamDetails.players?.map((player) => (
-          <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} onUpdate={() => null} />
+          <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} city={teamDetails.city} teamName={teamDetails.name} onUpdate={() => null} />
         ))}
       </div>
 
