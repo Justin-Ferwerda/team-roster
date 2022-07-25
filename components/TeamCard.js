@@ -6,7 +6,9 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { deleteTeamPlayers } from '../api/mergedData';
 
-function TeamCard({ teamObj, src, onUpdate }) {
+function TeamCard({
+  teamObj, src, onUpdate, user,
+}) {
   const deleteThisTeam = () => {
     if (window.confirm(`Delete ${teamObj.name}?`)) {
       deleteTeamPlayers(teamObj.firebaseKey).then(() => onUpdate());
@@ -32,16 +34,17 @@ function TeamCard({ teamObj, src, onUpdate }) {
           <h1>{teamObj.city}</h1>
           <h1>{teamObj.name}</h1>
         </div>
+        <h5 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h5>
         <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisTeam} className="m-2">
           DELETE
         </Button>
-        <h5 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h5>
         <Link href={`/team/${teamObj.firebaseKey}`} passHref>
           <Button variant="info">VIEW DETAILS</Button>
         </Link>
+        <h5>Created by: {user.displayName}</h5>
       </BackSide>
     </Flippy>
   );
@@ -57,10 +60,18 @@ TeamCard.propTypes = {
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
   src: PropTypes.string,
+  user: PropTypes.shape({
+    displayName: PropTypes.string,
+    photoURL: PropTypes.string,
+  }),
 };
 
 TeamCard.defaultProps = {
   src: '/images/klaythompson.png',
+  user: PropTypes.shape({
+    displayName: '',
+    photoURL: '',
+  }),
 };
 
 export default TeamCard;
