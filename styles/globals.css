@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
@@ -19,4 +19,18 @@ a {
 
 body {
   background-color: white;
+}
+
+.player-details {
+  text-align: center;
+  
+}
+
+.team-details {
+  text-align: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
 }

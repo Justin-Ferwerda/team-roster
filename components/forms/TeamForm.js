@@ -49,12 +49,12 @@ function TeamForm({ obj }) {
       <Form onSubmit={handleSubmit}>
         <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Team</h2>
 
-        <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
+        <FloatingLabel controlId="floatingInput1" label="Team Name" className="mb-3">
           <Form.Control
             type="text"
             placeholder="Enter Name"
-            name="name"
-            value={formInput.name}
+            name="teamName"
+            value={formInput.teamName}
             onChange={handleChange}
             required
           />
@@ -82,6 +82,21 @@ function TeamForm({ obj }) {
           />
         </FloatingLabel>
 
+        <Form.Check
+          className="text-white mb-3"
+          type="switch"
+          id="public"
+          name="public"
+          label="Public?"
+          checked={formInput.public}
+          onChange={(e) => {
+            setFormInput((prevState) => ({
+              ...prevState,
+              public: e.target.checked,
+            }));
+          }}
+        />
+
         <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Team</Button>
       </Form>
     </>
@@ -94,6 +109,7 @@ TeamForm.propTypes = {
     image: PropTypes.string,
     name: PropTypes.string,
     city: PropTypes.string,
+    public: PropTypes.bool,
     firebaseKey: string,
   }),
 };

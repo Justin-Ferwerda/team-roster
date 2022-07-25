@@ -1,0 +1,53 @@
+{
+  "players": {
+    "-N7fYE58a3626EKNMihk": {
+      "firebaseKey": "-N7fYE58a3626EKNMihk",
+      "image": "/images/klaythompson.png",
+      "name": "Klay Thompson",
+      "position": "Shooting Guard",
+      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    },
+    "-N7f_1PpEk5y4zjk2W0A": {
+      "firebaseKey": "-N7f_1PpEk5y4zjk2W0A",
+      "image": "/images/draymondgreen.png",
+      "name": "Draymond Green",
+      "position": "Power Forward",
+      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    },
+    "-N7f_X9kVQdmYckEujN_": {
+      "firebaseKey": "-N7f_X9kVQdmYckEujN_",
+      "image": "/images/andrewwiggins.png",
+      "name": "Andrew Wiggins",
+      "position": "Small Forward",
+      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    },
+    "-N7f_riir82GGcD2g7ic": {
+      "firebaseKey": "-N7f_riir82GGcD2g7ic",
+      "image": "/images/jameswiseman.png",
+      "name": "James Wiseman",
+      "position": "Center",
+      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    },
+    "-N7fblVsIxSwfFwCECnE": {
+      "firebaseKey": "-N7fblVsIxSwfFwCECnE",
+      "image": "/images/stephcurry.png",
+      "name": "Steph Curry",
+      "position": "Point Guard",
+      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    }
+  },
+  "teams": {
+    "-N7gSBjQcgm3Z1OWk8bx": {
+      "city": "Golden State",
+      "firebaseKey": "-N7gSBjQcgm3Z1OWk8bx",
+      "image": "/images/klaythompson.png",
+      "name": "Warriors",
+      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    }
+  }
+}
