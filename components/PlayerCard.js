@@ -28,6 +28,9 @@ function PlayerCard({
     >
       <FrontSide style={{ backgroundColor: '#26282A' }}>
         <Image src={src} layout="fill" />
+        <figcaption>
+          {playerObj.name}
+        </figcaption>
       </FrontSide>
       <BackSide style={{ backgroundColor: '#FFC72C' }}>
         <div className="player-details">
