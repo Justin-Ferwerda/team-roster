@@ -54,7 +54,11 @@ TeamCard.propTypes = {
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
+};
+
+TeamCard.defaultProps = {
+  src: '/images/klaythompson.png',
 };
 
 export default TeamCard;

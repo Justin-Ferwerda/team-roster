@@ -6,7 +6,9 @@ import Image from 'next/image';
 import PropTypes from 'prop-types';
 import { deleteSinglePlayer } from '../api/playerData';
 
-function PlayerCard({ playerObj, onUpdate, src }) {
+function PlayerCard({
+  playerObj, onUpdate, src,
+}) {
   const deleteThisPlayer = () => {
     if (window.confirm(`Delete ${playerObj.name}?`)) {
       deleteSinglePlayer(playerObj.firebaseKey).then(() => onUpdate());
@@ -30,7 +32,7 @@ function PlayerCard({ playerObj, onUpdate, src }) {
       <BackSide style={{ backgroundColor: '#FFC72C' }}>
         <h1>{playerObj.name}</h1>
         <h3>{playerObj.position}</h3>
-        <h3>{playerObj.team}</h3>
+        {/* <h3>{teamObj.name}</h3> */}
         <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
@@ -51,7 +53,14 @@ PlayerCard.propTypes = {
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  teamObj: PropTypes.shape({
+    name: PropTypes.string,
+  }).isRequired,
+};
+
+PlayerCard.defaultProps = {
+  src: '/images/klaythompson.png',
 };
 
 export default PlayerCard;

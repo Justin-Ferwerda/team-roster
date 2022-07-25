@@ -5,16 +5,24 @@ import { Button, Form } from 'react-bootstrap';
 import { getPlayers } from '../api/playerData';
 import { useAuth } from '../utils/context/authContext';
 import PlayerCard from '../components/PlayerCard';
+/* import { viewPlayerDetails } from '../api/mergedData'; */
 
 function Home() {
   const [players, setPlayers] = useState([]);
   const { user } = useAuth();
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
+  /* const [teamNameObj, setTeamNameObj] = useState({}); */
 
   const getAllThePlayers = () => {
     getPlayers(user.uid).then(setPlayers);
   };
+
+  /* const playerCity = (playerfirebaseKey) => {
+    viewPlayerDetails(playerfirebaseKey).then(setTeamNameObj);
+    console.warn(teamNameObj);
+    return teamNameObj;
+  }; */
 
   useEffect(() => {
     getAllThePlayers();

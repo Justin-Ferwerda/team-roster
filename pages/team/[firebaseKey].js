@@ -13,7 +13,8 @@ export default function ViewTeam() {
   useEffect(() => {
     viewTeamDetails(firebaseKey)
       .then(setteamDetails);
-  }, [firebaseKey]);
+    console.warn(teamDetails);
+  }, [firebaseKey, teamDetails]);
 
   console.warn(teamDetails);
 
