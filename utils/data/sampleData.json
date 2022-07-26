@@ -1,53 +1,57 @@
 {
-  "players": {
-    "-N7fYE58a3626EKNMihk": {
-      "firebaseKey": "-N7fYE58a3626EKNMihk",
-      "image": "/images/klaythompson.png",
-      "name": "Klay Thompson",
-      "position": "Shooting Guard",
-      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+  "teamColors": {
+    "atlantahawks": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#C8102E"
     },
-    "-N7f_1PpEk5y4zjk2W0A": {
-      "firebaseKey": "-N7f_1PpEk5y4zjk2W0A",
-      "image": "/images/draymondgreen.png",
-      "name": "Draymond Green",
-      "position": "Power Forward",
-      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    "bostonceltics": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#007A33" 
     },
-    "-N7f_X9kVQdmYckEujN_": {
-      "firebaseKey": "-N7f_X9kVQdmYckEujN_",
-      "image": "/images/andrewwiggins.png",
-      "name": "Andrew Wiggins",
-      "position": "Small Forward",
-      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    "brooklynnets": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#FFFFFF" 
     },
-    "-N7f_riir82GGcD2g7ic": {
-      "firebaseKey": "-N7f_riir82GGcD2g7ic",
-      "image": "/images/jameswiseman.png",
-      "name": "James Wiseman",
-      "position": "Center",
-      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    "charlottehornets": {
+      "frontsideColor": "#1D1160",
+      "backSideColor": "#00788C" 
     },
-    "-N7fblVsIxSwfFwCECnE": {
-      "firebaseKey": "-N7fblVsIxSwfFwCECnE",
-      "image": "/images/stephcurry.png",
-      "name": "Steph Curry",
-      "position": "Point Guard",
-      "teamId": "-N7gSBjQcgm3Z1OWk8bx",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
+    "chicagobulls": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#CE1141" 
+    },
+    "clevelandcavaliers": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#FDBB30" 
+    },
+    "dallasmavericks": {
+      "frontsideColor": "#002B5E",
+      "backSideColor": "#B8C4CA" 
+    },
+    "denvernuggets": {
+      "frontsideColor": "#0E2240",
+      "backSideColor": "FEC524" 
+    },
+    "detroitpistons": {
+      "frontsideColor": "#C8102E",
+      "backSideColor": "#1D42BA" 
+    },
+    "goldenstatewarriors": {
+      "frontsideColor": "#26282A",
+      "backSideColor": "#FDB927" 
+    },
+    "houstonrockets": {
+      "frontsideColor": "#CE1141",
+      "backSideColor": "#C4CED4" 
+    },
+    "indianapacers": {
+      "frontsideColor": "#002D62",
+      "backSideColor": "#FDBB30" 
+    }, 
+    "losangelesclippers": {
+      "frontsideColor": "#C8102E",
+      "backSideColor": "#BEC0C2" 
     }
-  },
-  "teams": {
-    "-N7gSBjQcgm3Z1OWk8bx": {
-      "city": "Golden State",
-      "firebaseKey": "-N7gSBjQcgm3Z1OWk8bx",
-      "image": "/images/klaythompson.png",
-      "teamName": "Warriors",
-      "uid": "SmaWHi8Hv0Sc1nPJDyRzWtgOtmm2"
-    }
+
   }
 }

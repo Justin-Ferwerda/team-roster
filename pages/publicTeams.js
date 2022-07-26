@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { getPublicTeams } from '../api/teamData';
 import TeamCard from '../components/TeamCard';
 
@@ -28,9 +27,6 @@ function Home() {
 
   return (
     <div className="text-center my-4">
-      <Link href="/team/new" passHref>
-        <Button>Add A Team</Button>
-      </Link>
       <Form.Control icon="search" placeholder="Search Public Teams" onChange={(e) => searchItems(e.target.value)} />
       {searchInput.length > 1 ? (
         <div className="d-flex flex-wrap">
