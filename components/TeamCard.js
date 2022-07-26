@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRef } from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Button from 'react-bootstrap/Button';
@@ -7,71 +8,68 @@ import PropTypes from 'prop-types';
 import { deleteTeamPlayers } from '../api/mergedData';
 
 function TeamCard({
-  teamObj, src, onUpdate, user,
+  teamObj, src, onUpdate,
 }) {
   const deleteThisTeam = () => {
-    if (window.confirm(`Delete ${teamObj.name}?`)) {
+    if (window.confirm(`Delete ${teamObj.teamName}?`)) {
       deleteTeamPlayers(teamObj.firebaseKey).then(() => onUpdate());
     }
   };
 
   const ref = useRef();
   return (
-    <Flippy
-      flipOnHover={false} // default false
-      flipOnClick // default false
-      flipDirection="horizontal" // horizontal or vertical
-      ref={ref} // to use toggle method like ref.curret.toggle()
+    <div className="teamCard">
+      <Flippy
+        flipOnHover={false} // default false
+        flipOnClick // default false
+        flipDirection="horizontal" // horizontal or vertical
+        ref={ref} // to use toggle method like ref.curret.toggle()
       // if you pass isFlipped prop component will be controlled component.
       // and other props, which will go to div
-      style={{ width: '250px', height: '300px', margin: '10px' }}
-    >
-      <FrontSide style={{ backgroundColor: '#26282A' }}>
-        <Image src={src} layout="fill" />
-      </FrontSide>
-      <BackSide style={{ backgroundColor: '#FFC72C' }}>
-        <div className="team-details">
-          <h1>{teamObj.city}</h1>
-          <h1>{teamObj.name}</h1>
-        </div>
-        <h5 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h5>
-        <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteThisTeam} className="m-2">
-          DELETE
-        </Button>
-        <Link href={`/team/${teamObj.firebaseKey}`} passHref>
-          <Button variant="info">VIEW DETAILS</Button>
-        </Link>
-        <h5>Created by: {user.displayName}</h5>
-      </BackSide>
-    </Flippy>
+        style={{ width: '250px', height: '350px', margin: '10px' }}
+      >
+        <FrontSide style={{ backgroundColor: '#26282A' }}>
+          <Image src={src} layout="fill" />
+        </FrontSide>
+        <BackSide style={{ backgroundColor: '#FFC72C' }}>
+          <div className="team-details">
+            <h5>{teamObj.city}</h5>
+            <h5>{teamObj.teamName}</h5>
+          </div>
+          <h6 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h6>
+          <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
+            <Button variant="outline-secondary">EDIT</Button>
+          </Link>
+          <Button variant="outline-danger" onClick={deleteThisTeam} className="m-2">
+            DELETE
+          </Button>
+          <Link href={`/team/${teamObj.firebaseKey}`} passHref>
+            <Button variant="outline-dark">VIEW DETAILS</Button>
+          </Link>
+          <p>Created by: {teamObj.displayName}</p>
+          <img className="user-photo" src={teamObj.photoURL} alt={teamObj.displayName} />
+        </BackSide>
+      </Flippy>
+    </div>
   );
 }
 
 TeamCard.propTypes = {
   teamObj: PropTypes.shape({
-    name: PropTypes.string,
+    teamName: PropTypes.string,
     image: PropTypes.string,
     city: PropTypes.string,
     public: PropTypes.bool,
     firebaseKey: PropTypes.string,
+    displayName: PropTypes.string,
+    photoURL: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
   src: PropTypes.string,
-  user: PropTypes.shape({
-    displayName: PropTypes.string,
-    photoURL: PropTypes.string,
-  }),
 };
 
 TeamCard.defaultProps = {
-  src: '/images/klaythompson.png',
-  user: PropTypes.shape({
-    displayName: '',
-    photoURL: '',
-  }),
+  src: '/images/error.png',
 };
 
 export default TeamCard;

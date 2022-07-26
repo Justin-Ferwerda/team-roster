@@ -8,17 +8,17 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: white;
-  text-decoration: none;
-}
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: white;
+  background: url('/images/hoopbackground.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
 }
 
 .player-details {
@@ -41,3 +41,15 @@ figcaption {
   background: rgb(253, 185, 39);
   border: 2px rgb(0, 0, 0) solid;
   z-index: 10; }
+
+.playerCard {
+  color: black;
+}
+
+.teamCard {
+  color: black;
+}
+
+.mb-3 {
+  color: black;
+}
