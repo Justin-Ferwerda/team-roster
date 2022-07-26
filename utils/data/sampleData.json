@@ -51,6 +51,74 @@
     "losangelesclippers": {
       "frontsideColor": "#C8102E",
       "backSideColor": "#BEC0C2" 
+    },
+    "losangeleslakers": {
+      "frontsideColor": "#552583",
+      "backSideColor": "#FDB927" 
+    },
+    "memphisgrizzlies": {
+      "frontsideColor": "#12173F",
+      "backSideColor": "#5D76A9" 
+    }, 
+    "miamiheat": {
+      "frontsideColor": "#98002E",
+      "backSideColor": "#F9A01B" 
+    },
+    "milwaukeebucks": {
+      "frontsideColor": "#00471B",
+      "backSideColor": "#EEE1C6" 
+    },
+    "minnesotatimberwolves": {
+      "frontsideColor": "#0C2340",
+      "backSideColor": "#236192" 
+    },
+    "neworleanspelicans": {
+      "frontsideColor": "#0C2340",
+      "backSideColor": "#C8102E" 
+    },
+    "newyorkknicks": {
+      "frontsideColor": "#006BB6",
+      "backSideColor": "#F58426" 
+    },
+    "oklahomacitythunder": {
+      "frontsideColor": "#EF3B24",
+      "backSideColor": "#007AC1" 
+    },
+    "orlandomagic": {
+      "frontsideColor": "#0077C0",
+      "backSideColor": "#C4CED4" 
+    },
+    "philadelphia76ers": {
+      "frontsideColor": "#006BB6",
+      "backSideColor": "#ED174C" 
+    },
+    "phoenixsuns": {
+      "frontsideColor": "#1D1160",
+      "backSideColor": "#E56020" 
+    },
+    "portlandtrailblazers": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#E03A3E" 
+    },
+    "sacramentokings": {
+      "frontsideColor": "#5A2D81",
+      "backSideColor": "#63727A" 
+    },
+    "sanantoniospurs": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#C4CED4" 
+    },
+    "torontoraptors": {
+      "frontsideColor": "#000000",
+      "backSideColor": "#CE1141" 
+    },
+    "utahjazz": {
+      "frontsideColor": "#002B5C",
+      "backSideColor": "#00471B" 
+    },
+    "washingtonwizards": {
+      "frontsideColor": "#002B5C",
+      "backSideColor": "#C4CED4" 
     }
 
   }
