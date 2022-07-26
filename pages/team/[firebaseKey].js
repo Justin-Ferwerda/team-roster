@@ -17,7 +17,9 @@ export default function ViewTeam() {
 
   return (
     <>
-      <TeamCard key={firebaseKey} teamObj={teamDetails} src={teamDetails.image} onUpdate={() => null} />
+      <div className="d-flex flex-wrap">
+        <TeamCard key={firebaseKey} teamObj={teamDetails} src={teamDetails.image} onUpdate={() => null} />
+      </div>
       <div className="d-flex flex-wrap">
         {teamDetails.players?.map((player) => (
           <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} city={teamDetails.city} teamName={teamDetails.name} onUpdate={() => null} />

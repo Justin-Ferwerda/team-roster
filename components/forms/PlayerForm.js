@@ -50,7 +50,7 @@ function PlayerForm({ obj }) {
     <>
       <h1>Add A Player</h1>
       <Form onSubmit={handleSubmit}>
-        <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Team</h2>
+        <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Player</h2>
 
         <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
           <Form.Control
@@ -101,7 +101,7 @@ function PlayerForm({ obj }) {
                 key={team.firebaseKey}
                 value={team.firebaseKey}
               >
-                {team.name}
+                {team.teamName}
               </option>
             ))
           }
