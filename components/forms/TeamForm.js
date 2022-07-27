@@ -73,17 +73,6 @@ function TeamForm({ obj }) {
           />
         </FloatingLabel>
 
-        <FloatingLabel controlId="floatingInput3" label="City" className="mb-3">
-          <Form.Control
-            type="text"
-            placeholder="Enter City"
-            name="city"
-            value={formInput.city}
-            onChange={handleChange}
-            required
-          />
-        </FloatingLabel>
-
         <Form.Check
           className="text-white mb-3"
           type="switch"
@@ -110,7 +99,6 @@ TeamForm.propTypes = {
   obj: PropTypes.shape({
     image: PropTypes.string,
     name: PropTypes.string,
-    city: PropTypes.string,
     public: PropTypes.bool,
     firebaseKey: string,
   }),

@@ -7,7 +7,9 @@ import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createPlayer, updatePlayer } from '../../api/playerData';
 import { getTeams } from '../../api/teamData';
-
+import assignTeamColors from '../../api/teamColorData';
+/* import assignTeamColors from '../../api/teamColorData';
+ */
 const initialState = {
   image: '',
   name: '',
@@ -40,9 +42,7 @@ function PlayerForm({ obj }) {
         .then(() => router.push('/players'));
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createPlayer(payload).then(() => {
-        router.push('/players');
-      });
+      createPlayer(payload).then((playerobj) => assignTeamColors(playerobj.data.firebaseKey)).then(router.push('/players'));
     }
   };
 

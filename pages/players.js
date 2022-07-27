@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap';
 import { getPlayers } from '../api/playerData';
 import { useAuth } from '../utils/context/authContext';
 import PlayerCard from '../components/PlayerCard';
+import assignTeamColors from '../api/teamColorData';
 
 function Home() {
   const [players, setPlayers] = useState([]);
@@ -17,6 +18,7 @@ function Home() {
 
   useEffect(() => {
     getAllThePlayers();
+    assignTeamColors('-N7vIwZtB5cONcI2c3f8').then(null);
   }, []);
 
   const searchItems = (searchValue) => {
