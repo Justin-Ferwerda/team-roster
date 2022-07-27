@@ -32,7 +32,7 @@ const createPlayer = (playerObj) => new Promise((resolve, reject) => {
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/players/${response.data.name}.json`, payload)
-        .then(resolve);
+        .then((patchResponse) => resolve(patchResponse.data));
     }).catch(reject);
 });
 

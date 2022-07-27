@@ -27,13 +27,13 @@ function PlayerCard({
       // and other props, which will go to div
         style={{ width: '250px', height: '300px', margin: '10px' }}
       >
-        <FrontSide style={{ backgroundColor: `${playerObj.cardBack}` }}>
+        <FrontSide style={{ backgroundColor: `${playerObj.frontSideColor}` }}>
           <Image src={src} layout="fill" />
           <figcaption>
             {playerObj.name}
           </figcaption>
         </FrontSide>
-        <BackSide style={{ backgroundColor: `${playerObj.cardFront}` }}>
+        <BackSide style={{ backgroundColor: `${playerObj.backSideColor}` }}>
           <div className="player-details">
             <h1>{playerObj.name}</h1>
             <h5>{playerObj.position}</h5>
@@ -57,8 +57,8 @@ PlayerCard.propTypes = {
     image: PropTypes.string,
     position: PropTypes.string,
     team: PropTypes.string,
-    cardBack: PropTypes.string,
-    cardFront: PropTypes.string,
+    backSideColor: PropTypes.string,
+    frontSideColor: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

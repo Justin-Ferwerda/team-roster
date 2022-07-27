@@ -11,15 +11,13 @@ const getTeamColors = (teamName) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const assignTeamColors = (playerfirebaseKey) => new Promise((resolve, reject) => {
-  getSinglePlayer(playerfirebaseKey).then((playerObj) => getSingleTeam(playerObj.teamId).then((teamObject) => {
-    const name = teamObject.teamName;
-    getTeamColors(name).then((color) => {
-      const payload = { backSideColor: color.backSideColor, frontsideColor: color.frontsideColor };
-
-      axios.patch(`${dbUrl}/players/${playerfirebaseKey}.json`, payload).then(resolve);
-    });
-  }).catch(reject));
-});
+const assignTeamColors = async (playerfirebaseKey) => {
+  const playerObj = await getSinglePlayer(playerfirebaseKey);
+  const teamObj = await getSingleTeam(playerObj.teamId);
+  const name = teamObj.teamName;
+  const color = await getTeamColors(name).then(Object.values);
+  const payload = { backSideColor: color[0].backSideColor, frontSideColor: color[0].frontsideColor };
+  return axios.patch(`${dbUrl}/players/${playerfirebaseKey}.json`, payload);
+};
 
 export default assignTeamColors;
