@@ -33,13 +33,13 @@ function Home() {
       {searchInput.length > 1 ? (
         <div className="d-flex flex-wrap">
           {filteredResults.map((player) => (
-            <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} onUpdate={getAllThePlayers} />
+            <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} user={user} onUpdate={getAllThePlayers} />
           ))}
         </div>
       ) : (
         <div className="d-flex flex-wrap">
           {players.map((player) => (
-            <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} onUpdate={getAllThePlayers} />
+            <PlayerCard key={player.firebaseKey} playerObj={player} src={player.image} user={user} onUpdate={getAllThePlayers} />
           ))}
         </div>
       )}
