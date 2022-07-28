@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { deleteSinglePlayer } from '../api/playerData';
 
 function PlayerCard({
-  playerObj, onUpdate, src, city, teamName,
+  playerObj, onUpdate, src, city, teamName, user,
 }) {
   const deleteThisPlayer = () => {
     if (window.confirm(`Delete ${playerObj.name}?`)) {
@@ -27,24 +27,30 @@ function PlayerCard({
       // and other props, which will go to div
         style={{ width: '250px', height: '300px', margin: '10px' }}
       >
-        <FrontSide style={{ backgroundColor: `${playerObj.frontSideColor}` }}>
+        <FrontSide className="cardFront" style={{ backgroundColor: `${playerObj.frontSideColor}` }}>
           <Image src={src} layout="fill" />
           <figcaption>
             {playerObj.name}
           </figcaption>
         </FrontSide>
-        <BackSide style={{ backgroundColor: `${playerObj.backSideColor}` }}>
+        <BackSide className="cardBack" style={{ backgroundColor: `${playerObj.backSideColor}` }}>
           <div className="player-details">
             <h1>{playerObj.name}</h1>
             <h5>{playerObj.position}</h5>
             <h3>{city} {teamName}</h3>
           </div>
-          <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
-            <Button variant="outline-secondary">EDIT</Button>
-          </Link>
-          <Button variant="outline-danger" onClick={deleteThisPlayer} className="m-2">
-            DELETE
-          </Button>
+          {playerObj.uid === user.uid ? (
+            <>
+              <Link href={`/player/edit/${playerObj.firebaseKey}`} passHref>
+                <Button variant="outline-secondary">EDIT</Button>
+              </Link>
+              <Button variant="outline-danger" onClick={deleteThisPlayer} className="m-2">
+                DELETE
+              </Button>
+            </>
+          ) : (
+            <div />
+          )}
         </BackSide>
       </Flippy>
     </div>
@@ -60,6 +66,10 @@ PlayerCard.propTypes = {
     backSideColor: PropTypes.string,
     frontSideColor: PropTypes.string,
     firebaseKey: PropTypes.string,
+    uid: PropTypes.string,
+  }).isRequired,
+  user: PropTypes.shape({
+    uid: PropTypes.string.isRequired,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
   src: PropTypes.string,

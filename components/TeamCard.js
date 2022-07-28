@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { deleteTeamPlayers } from '../api/mergedData';
 
 function TeamCard({
-  teamObj, src, onUpdate,
+  teamObj, src, onUpdate, user,
 }) {
   const deleteThisTeam = () => {
     if (window.confirm(`Delete ${teamObj.teamName}?`)) {
@@ -28,21 +28,27 @@ function TeamCard({
       // and other props, which will go to div
         style={{ width: '250px', height: '350px', margin: '10px' }}
       >
-        <FrontSide style={{ backgroundColor: '#26282A' }}>
+        <FrontSide className="cardFront" style={{ backgroundColor: '#26282A' }}>
           <Image src={src} layout="fill" />
         </FrontSide>
-        <BackSide style={{ backgroundColor: '#FFC72C' }}>
+        <BackSide className="cardBack" style={{ backgroundColor: '#FFC72C' }}>
           <div className="team-details">
             <h5>{teamObj.city}</h5>
             <h5>{teamObj.teamName}</h5>
           </div>
           <h6 style={{ textAlign: 'center' }}>{teamObj.public ? 'Public' : ''}</h6>
-          <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
-            <Button variant="outline-secondary">EDIT</Button>
-          </Link>
-          <Button variant="outline-danger" onClick={deleteThisTeam} className="m-2">
-            DELETE
-          </Button>
+          {teamObj.uid === user.uid ? (
+            <>
+              <Link href={`/team/edit/${teamObj.firebaseKey}`} passHref>
+                <Button variant="outline-secondary">EDIT</Button>
+              </Link>
+              <Button variant="outline-danger" onClick={deleteThisTeam} className="m-2">
+                DELETE
+              </Button>
+            </>
+          ) : (
+            <div />
+          )}
           <Link href={`/team/${teamObj.firebaseKey}`} passHref>
             <Button variant="outline-dark">VIEW DETAILS</Button>
           </Link>
@@ -63,6 +69,10 @@ TeamCard.propTypes = {
     firebaseKey: PropTypes.string,
     displayName: PropTypes.string,
     photoURL: PropTypes.string,
+    uid: PropTypes.string,
+  }).isRequired,
+  user: PropTypes.shape({
+    uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
   src: PropTypes.string,
