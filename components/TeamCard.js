@@ -47,7 +47,9 @@ function TeamCard({
               </Button>
             </>
           ) : (
-            <div />
+            <Link href={`${teamObj.firebaseKey}`} passHref>
+              <Button variant="outline-dark">Request Trade</Button>
+            </Link>
           )}
           <Link href={`/team/${teamObj.firebaseKey}`} passHref>
             <Button variant="outline-dark">VIEW DETAILS</Button>
