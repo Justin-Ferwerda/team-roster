@@ -17,7 +17,7 @@ function Home() {
 
   useEffect(() => {
     getAllTheTrades();
-  }, []);
+  }, [user]);
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);

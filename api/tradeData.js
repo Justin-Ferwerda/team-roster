@@ -57,7 +57,7 @@ const deleteSingleTrade = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 const getTeamToReceive = async (tradeFirebaseKey) => {
-  const teamObj = getSingleTeam(tradeFirebaseKey);
+  const teamObj = await getSingleTeam(tradeFirebaseKey);
   return teamObj.teamName;
 };
 

@@ -32,5 +32,5 @@ TradeRequestCard.propTypes = {
   onUpdate: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
   teamToTrade: PropTypes.string.isRequired,
-  teamToReceive: PropTypes.string.isRequired,
+  teamToReceive: PropTypes.func.isRequired,
 };
