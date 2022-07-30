@@ -5,7 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
-import createTradeRequest from '../../api/tradeData';
+import { createTradeRequest } from '../../api/tradeData';
 import { getTeams } from '../../api/teamData';
 
 const initialState = {
